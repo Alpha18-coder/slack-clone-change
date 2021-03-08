@@ -71,7 +71,9 @@ function Sidebar(props) {
 export default Sidebar;
 
 const Container = styled.div`
-background: #3F0340;
+background: #2536a0; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left,#ba00e8,#2536a0);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left,#ba00e8,#2536a0);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 z-index: 3;
 `
 const WorkSpaceContainer = styled.div`
@@ -115,7 +117,8 @@ padding-left: 19px;
 cursor: pointer;
 :hover {
     color: white;
-    background: #350D36;
+    font-weight: bold;
+    background: linear-gradient(to left,#6e008a,#1d32b5);
 }
 `
 
@@ -132,6 +135,12 @@ align-items: center;
 height: 28px;
 padding-left: 19px;
 padding: right: 12px;
+.MuiSvgIcon-root {
+    cursor: pointer;
+    :hover{
+        color: white;
+    }
+}
 `
 
 const ChannelsList = styled.div`
@@ -143,4 +152,9 @@ display: flex;
 align-items: center;
 cursor: pointer;
 padding-left: 19px;
+:hover {
+    color: white;
+    font-weight: bold;
+    background: linear-gradient(to left,#6e008a,#1d32b5);
+}
 `

@@ -1,28 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
-import db from "../firebase";
 
 
-function ChatHeader({channelId}) {
-
-     //va a buscar la id a través de app.js y verá el url donde está el id (que esta definido en path) 
-    const [ channel, setChannel ] = useState();
-    
-    const getChannel = () => {
-        db.collection('rooms')
-        .doc(channelId)
-        .onSnapshot((snapshot) => {
-            console.log(snapshot.data());//setChannel(snapshot.data());
-        })
-     }
-    
-    useEffect(() => {
-        getChannel();
-    }, [channelId]) //esto un listener de los cambios de id c: (ES IMPORTANTE)
-    
-    getChannel();
+function ChatHeader({channel}) {
 
     return (
         <Container>
@@ -51,7 +33,7 @@ function ChatHeader({channelId}) {
 export default ChatHeader;
 
 const Container = styled.div`
-
+width: auto;
 `
 
 const HeaderSection = styled.div`

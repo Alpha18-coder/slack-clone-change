@@ -23,6 +23,7 @@ function ChatMessage({ text, name, image, timestamp }) {
 export default ChatMessage;
 
 const Container = styled.div`
+background-image: url("paper.gif");
 padding: 8px 20px;
 display: flex;
 align-items: center;

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import styled  from 'styled-components';
 import './App.css';
 import db from './firebase';
 import Chat from './Components/Chat';
 import Login from './Components/Login';
 import Header from './Components/Header';
+import CreateChannel from "./Components/CreateChannel";
 import Sidebar from './Components/Sidebar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { auth, provider } from "./firebase";
+import { auth } from "./firebase";
 
 function App() {
   const [rooms, setRooms] = useState([]);
@@ -41,20 +42,20 @@ function App() {
           !user ?
             <Login setUser={setUser} />
             :
-            <Container>
-              <Header signOut={signOut} user={user}/>
-              <Main>
+              <Container>
+                <Header signOut={signOut} user={user}/>
+                <Main>
                 <Sidebar rooms={rooms} />
                 <Switch>
                   <Route path="/room/:channelId"> 
-                    <Chat />
+                    <Chat user={user} />
                   </Route>
                   <Route path="/">
-                    Select or Create Channel
+                    <CreateChannel />
                   </Route>
                 </Switch>
               </Main>
-            </Container>
+              </Container>
         }
       </Router>
     </div>
@@ -67,7 +68,7 @@ const Container = styled.div`
 width: 100%;
 height: 100vh;
 display: grid;
-grid-template-rows: 50px auto; 
+grid-template-rows: 50px minmax(0,1fr); 
 `
 
 /*auto toma el resto del espacio restante*/

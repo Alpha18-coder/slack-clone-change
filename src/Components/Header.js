@@ -15,12 +15,8 @@ function Header({ user, signOut }) {
                 <SearchContainer>
                     <Search>
                         <input type="text" placeholder="Search..." />
-                        <Icon>
-                            <SearchOutlinedIcon />
-                        </Icon>
-
+                        <SearchOutlinedIcon />
                     </Search>
-
                 </SearchContainer>
                 <HelpOutlineIcon />
             </Main>
@@ -39,7 +35,7 @@ function Header({ user, signOut }) {
 export default Header;
 
 const Container = styled.div`
-background: #350d36;
+background: linear-gradient(to top,#ba00e8,#2536a0);
 color: white;
 display: flex;
 align-items: center;
@@ -69,12 +65,13 @@ margin-right: 16px;
 
 const Search = styled.div`
 width: 100%;
-box-shadow: inset 0 0 0 1px rgb(104 74 104);
+box-shadow: inset 0px 0px 0 1.5px lightgray;
 border-radius: 28px;
 display: flex; 
 align-items: center;
 justify-content: space-between;
 input {
+    width: 100%;
     background-color: transparent;
     border: none;
     outline: none;
@@ -85,6 +82,13 @@ input {
     padding-bottom: 4px;
 }
 
+.MuiSvgIcon-root {
+    display: flex;
+    align-items: center;
+    padding-right: 5px;
+    border-left: 2px solid lightgray;
+    padding: 0px 10px;
+}
 `
 
 const UserContainer = styled.div`
@@ -97,7 +101,6 @@ right: 0;
 
 const Name = styled.div`
 padding-right: 16px;
-
 `
 
 const UserImage = styled.div`
@@ -109,11 +112,4 @@ cursor: pointer;
 img {
     width: 100%;
 }
-`
-
-const Icon = styled.div`
-display: flex;
-align-items: center;
-padding-right: 5px;
-border-left: 1px solid rgb(104 74 104);
 `
